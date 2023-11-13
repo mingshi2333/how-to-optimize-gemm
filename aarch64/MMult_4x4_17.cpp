@@ -66,12 +66,12 @@ float *fastMalloc(int size) {
   void *ptr = 0;
   int iRet = posix_memalign(&ptr, 64, size * sizeof(float));
   assert(0 == iRet);
-  return (float*)ptr;
+  return (float *)ptr;
 }
 
 /* Suppose that m%4==0 and n%4==0 and k%4==0, avoiding process boundary !! */
-void MY_MMult(int m, int n, int k, float *a, int lda,
-              float *b, int ldb, float *c, int ldc) {
+void MY_MMult(int m, int n, int k, float *a, int lda, float *b, int ldb,
+              float *c, int ldc) {
 #ifdef DEBUG_PRINT_DATA
   printf("\n-------\n");
   print_matrix(m, k, a, lda);
@@ -267,10 +267,10 @@ void kernel_4x4_v3(int m, int n, int k, float *sa, float *sb, float *sc,
       __builtin_prefetch(b, 0, 3);
       __builtin_prefetch(a, 0, 3);
 
-      float32x4_t v24 = { 0 };
-      float32x4_t v25 = { 0 };
-      float32x4_t v26 = { 0 };
-      float32x4_t v27 = { 0 };
+      float32x4_t v24 = {0};
+      float32x4_t v25 = {0};
+      float32x4_t v26 = {0};
+      float32x4_t v27 = {0};
 
       for (int l = 0; l < k; l += 4) {
         float32x4_t v0 = vld1q_f32(b);

@@ -1,5 +1,5 @@
-OLD  := MMult_4x4_10
-NEW  := MMult_4x4_21
+OLD  := MMult0
+NEW  := MMult0
 # ARCH := armv7-a
 # ARCH := aarch64
 ARCH := native
